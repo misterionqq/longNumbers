@@ -14,7 +14,6 @@ class longNumber {
 
     void initFromString(const std::string& s);
     void removeZeroes();
-    void normalize();
 
 public:
     longNumber();
