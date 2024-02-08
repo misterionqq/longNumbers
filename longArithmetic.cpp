@@ -43,53 +43,6 @@ void longNumber::removeZeroes() {
         exponent = 1;
         sign = 1;
     }
-
-    normalize();
-}
-
-void longNumber::normalize() {
-    size_t start = max(exponent, (long) 0);
-    size_t realDigits = digits.size() - start;
-
-    if (realDigits >= divDigits) {
-        size_t count = 0;
-        size_t maxCount = 0;
-
-        size_t i = start;
-
-        while (i < digits.size()) {
-            count = 0;
-
-            while (i < digits.size() && digits[i] == 9) {
-                count++;
-                i++;
-            }
-
-            if (count > maxCount)
-                maxCount = count;
-
-            i++;
-        }
-
-        if (maxCount > divDigits * 4 / 5) {
-            i = digits.size() - 1;
-
-            do {
-                count = 0;
-
-                while (i > 0 && digits[i] != 9)
-                    i--;
-
-                while (i > 0 && digits[i] == 9) {
-                    count++;
-                    i--;
-                }
-            } while (count != maxCount);
-
-            digits.erase(digits.begin() + i + 1, digits.end());
-            digits[i]++;
-        }
-    }
 }
 
 longNumber::longNumber() {
@@ -631,7 +584,6 @@ tuple<long double, long double, long double> binary_split(long double a, long do
     return {Pab, Qab, Rab};
 }
 */
-
 
 
 
