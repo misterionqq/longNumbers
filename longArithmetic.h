@@ -5,25 +5,25 @@
 #include <vector>
 
 class longNumber {
-    const size_t divDigits = 1000;
-    const size_t sqrtDigits = 100;
+    const size_t divDigits = 1000; // Точность для деления
+    const size_t sqrtDigits = 100; // Точность для корня
 
-    int sign;
-    std::vector<int> digits;
-    long exponent;
+    int sign; // Знак числа
+    std::vector<int> digits; // Вектор цифр числа (и целая, и дробная части)
+    long exponent; // Значение сдвига точки
 
-    void initFromString(const std::string& s);
-    void removeZeroes();
+    void initFromString(const std::string& s); // Инициализация из строки
+    void removeZeroes(); // Удаление бесполезных нулей в записи числа
 
 public:
-    longNumber();
-    longNumber(const longNumber& other);
-    longNumber(long double value);
-    longNumber(const std::string& s);
+    longNumber(); // Стандартный конструктор
+    longNumber(const longNumber& other); // Копирование числа
+    longNumber(long double value); // Конструктор из long double
+    longNumber(const std::string& s); // Конструктор из строки
 
-    std::string longNumberToString();
+    std::string longNumberToString(); // Преобразование длинного числа в строку
 
-    longNumber& operator=(const longNumber& other);
+    longNumber& operator=(const longNumber& other); // Перегрузка оператора приравнивания
 
     bool operator>(const longNumber& other) const;
     bool operator<(const longNumber& other) const;
